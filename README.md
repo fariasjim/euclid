@@ -114,7 +114,6 @@ Euclid follows a clean separation between data and UI:
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
 ### Contributions are currently unavailable. Wait for v1 stable release.
 ---
 
