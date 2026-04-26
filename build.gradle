@@ -1,0 +1,20 @@
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.1.0' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = 'dev.euclid'
+    version = '0.1.0'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(26)
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
