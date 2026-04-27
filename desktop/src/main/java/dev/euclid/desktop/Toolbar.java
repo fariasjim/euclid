@@ -3,14 +3,20 @@ package dev.euclid.desktop;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 
 public class Toolbar extends VBox {
 
   public Toolbar(ToolState toolState) {
     setSpacing(8);
-    setStyle("-fx-padding: 12; -fx-background-color: #2b2b2b;");
+    setStyle(
+        "-fx-background-color: #2b2b2b;" +
+            "-fx-background-radius: 15;" + // rounding corners
+            "-fx-border-radius:15;" +
+            "-fx-border-color: #3f3f3f;" +
+            "-fx-border-width: 1;");
     setPrefWidth(80);
-
+    BorderPane.setMargin(this, new javafx.geometry.Insets(10));
     ToggleGroup group = new ToggleGroup();
 
     ToggleButton pointBtn = toolButton("Point", group);

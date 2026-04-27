@@ -11,7 +11,7 @@ public class App extends Application {
   public void start(Stage stage) {
     ToolState toolstate = new ToolState();
     BorderPane root = new BorderPane();
-    root.setLeft(new Toolbar(toolstate));
+    root.setRight(new Toolbar(toolstate));
     root.setCenter(new MainCanvas(toolstate));
     root.setStyle("-fx-background-color: #1e1e1e;");
     Scene scene = new Scene(root, 600, 400);

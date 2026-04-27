@@ -41,22 +41,22 @@ public class MainCanvas extends Pane {
     double w = canvas.getWidth();
     double h = canvas.getHeight();
 
-    gc.setFill(Color.web("#1e1e1e"));
+    gc.setFill(Color.web("#ffffff"));
     gc.fillRect(0, 0, w, h);
     // Clear and draw grid
-    gc.setStroke(Color.web("#2e2e2e"));
-    gc.setLineWidth(1);
-    int grid = 40;
-    for (double x = 0; x < w; x += grid)
-      gc.strokeLine(x, 0, x, h);
-    for (double y = 0; y < h; y += grid)
-      gc.strokeLine(0, y, w, y);
+    // gc.setStroke(Color.web("#2e2e2e"));
+    // gc.setLineWidth(1);
+    // int grid = 40;
+    // for (double x = 0; x < w; x += grid)
+    // gc.strokeLine(x, 0, x, h);
+    // for (double y = 0; y < h; y += grid)
+    // gc.strokeLine(0, y, w, y);
     // Draw points
-    gc.setFill(Color.web("#ffffff"));
+    gc.setFill(Color.web("#000000"));
     // Draw points
     for (Point p : points) {
       // dot
-      gc.setFill(Color.web("#ffffff"));
+      gc.setFill(Color.web("#000000"));
       gc.fillOval(p.x - 4, p.y - 4, 8, 8);
 
       // smart label position
@@ -80,7 +80,7 @@ public class MainCanvas extends Pane {
         labelY = p.y - 8;
       }
 
-      gc.setFill(Color.web("#00d4ff"));
+      gc.setFill(Color.web("#262626"));
       gc.setFont(Font.font("Monospace", 13));
       gc.fillText(p.name, labelX, labelY);
     }
