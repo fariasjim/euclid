@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,10 @@ public class MainCanvas extends Pane {
 
     canvas.setOnMouseClicked(e -> {
       if (toolState.getActiveTool() == ToolState.Tool.POINT) {
-        points.add(new Point(e.getX(), e.getY()));
+        if (points.size() >= 26)
+          return; // limit to 26 points max
+        String name = String.valueOf((char) ('A' + points.size()));
+        points.add(new Point(name, e.getX(), e.getY()));
         draw();
       }
     });
@@ -39,7 +43,7 @@ public class MainCanvas extends Pane {
 
     gc.setFill(Color.web("#1e1e1e"));
     gc.fillRect(0, 0, w, h);
-
+    // Clear and draw grid
     gc.setStroke(Color.web("#2e2e2e"));
     gc.setLineWidth(1);
     int grid = 40;
@@ -49,8 +53,36 @@ public class MainCanvas extends Pane {
       gc.strokeLine(0, y, w, y);
     // Draw points
     gc.setFill(Color.web("#ffffff"));
+    // Draw points
     for (Point p : points) {
+      // dot
+      gc.setFill(Color.web("#ffffff"));
       gc.fillOval(p.x - 4, p.y - 4, 8, 8);
+
+      // smart label position
+      double labelX, labelY;
+
+      if (p.x < w / 2 && p.y < h / 2) {
+        // top-left zone → label bottom-right
+        labelX = p.x + 10;
+        labelY = p.y + 16;
+      } else if (p.x >= w / 2 && p.y < h / 2) {
+        // top-right zone → label bottom-left
+        labelX = p.x - 20;
+        labelY = p.y + 16;
+      } else if (p.x < w / 2 && p.y >= h / 2) {
+        // bottom-left zone → label top-right
+        labelX = p.x + 10;
+        labelY = p.y - 8;
+      } else {
+        // bottom-right zone → label top-left
+        labelX = p.x - 20;
+        labelY = p.y - 8;
+      }
+
+      gc.setFill(Color.web("#00d4ff"));
+      gc.setFont(Font.font("Monospace", 13));
+      gc.fillText(p.name, labelX, labelY);
     }
   }
 }
