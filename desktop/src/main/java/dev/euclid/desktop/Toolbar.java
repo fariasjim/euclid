@@ -11,12 +11,12 @@ public class Toolbar extends VBox {
     setSpacing(8);
     setStyle(
         "-fx-background-color: #2b2b2b;" +
-            "-fx-background-radius: 15;" + // rounding corners
-            "-fx-border-radius:15;" +
-            "-fx-border-color: #3f3f3f;" +
+            "-fx-background-radius: 10;" + // rounding corners
+            "-fx-border-radius:10;" +
+            "-fx-border-color: #3b3b3b;" +
             "-fx-border-width: 1;");
     setPrefWidth(80);
-    BorderPane.setMargin(this, new javafx.geometry.Insets(10));
+    BorderPane.setMargin(this, new javafx.geometry.Insets(5));
     ToggleGroup group = new ToggleGroup();
 
     ToggleButton pointBtn = toolButton("Point", group);

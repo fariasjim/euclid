@@ -13,7 +13,7 @@ public class App extends Application {
     BorderPane root = new BorderPane();
     root.setRight(new Toolbar(toolstate));
     root.setCenter(new MainCanvas(toolstate));
-    root.setStyle("-fx-background-color: #1e1e1e;");
+    root.setStyle("-fx-background-color: #ffffff;");
     Scene scene = new Scene(root, 600, 400);
 
     stage.setTitle("Euclid");

@@ -43,16 +43,8 @@ public class MainCanvas extends Pane {
 
     gc.setFill(Color.web("#ffffff"));
     gc.fillRect(0, 0, w, h);
-    // Clear and draw grid
-    // gc.setStroke(Color.web("#2e2e2e"));
-    // gc.setLineWidth(1);
-    // int grid = 40;
-    // for (double x = 0; x < w; x += grid)
-    // gc.strokeLine(x, 0, x, h);
-    // for (double y = 0; y < h; y += grid)
-    // gc.strokeLine(0, y, w, y);
     // Draw points
-    gc.setFill(Color.web("#000000"));
+    gc.setFill(Color.web("#ffffff"));
     // Draw points
     for (Point p : points) {
       // dot
